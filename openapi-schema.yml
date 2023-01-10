@@ -1,0 +1,724 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /api/:
+    get:
+      operationId: listapi_roots
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {}
+          description: ''
+      tags:
+      - api
+  /api/{format}:
+    get:
+      operationId: retrieveapi_root
+      description: ''
+      parameters:
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: ''
+      tags:
+      - api
+  /api/dog-list:
+    get:
+      operationId: listDogs
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Dog'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createDog
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Dog'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Dog'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Dog'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dog'
+          description: ''
+      tags:
+      - api
+  /api/dog-list{format}:
+    get:
+      operationId: retrieveDog
+      description: ''
+      parameters:
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dog'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createDog
+      description: ''
+      parameters:
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Dog'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Dog'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Dog'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dog'
+          description: ''
+      tags:
+      - api
+  /api/dog-detail/{id}:
+    get:
+      operationId: retrieveDog
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this dog.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dog'
+          description: ''
+      tags:
+      - api
+    put:
+      operationId: updateDog
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this dog.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Dog'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Dog'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Dog'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dog'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateDog
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this dog.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Dog'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Dog'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Dog'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dog'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyDog
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this dog.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
+  /api/dog-detail/{id}{format}:
+    get:
+      operationId: retrieveDog
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this dog.
+        schema:
+          type: string
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dog'
+          description: ''
+      tags:
+      - api
+    put:
+      operationId: updateDog
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this dog.
+        schema:
+          type: string
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Dog'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Dog'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Dog'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dog'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateDog
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this dog.
+        schema:
+          type: string
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Dog'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Dog'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Dog'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dog'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyDog
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this dog.
+        schema:
+          type: string
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
+  /api/breed-list:
+    get:
+      operationId: listBreeds
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Breed'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createBreed
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Breed'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Breed'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Breed'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Breed'
+          description: ''
+      tags:
+      - api
+  /api/breed-list{format}:
+    get:
+      operationId: retrieveBreed
+      description: ''
+      parameters:
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Breed'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createBreed
+      description: ''
+      parameters:
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Breed'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Breed'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Breed'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Breed'
+          description: ''
+      tags:
+      - api
+  /api/breed-detail/{id}:
+    get:
+      operationId: retrieveBreed
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this breed.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Breed'
+          description: ''
+      tags:
+      - api
+    put:
+      operationId: updateBreed
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this breed.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Breed'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Breed'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Breed'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Breed'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateBreed
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this breed.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Breed'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Breed'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Breed'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Breed'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyBreed
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this breed.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
+  /api/breed-detail/{id}{format}:
+    get:
+      operationId: retrieveBreed
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this breed.
+        schema:
+          type: string
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Breed'
+          description: ''
+      tags:
+      - api
+    put:
+      operationId: updateBreed
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this breed.
+        schema:
+          type: string
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Breed'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Breed'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Breed'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Breed'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateBreed
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this breed.
+        schema:
+          type: string
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Breed'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Breed'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Breed'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Breed'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyBreed
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this breed.
+        schema:
+          type: string
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
+components:
+  schemas:
+    Dog:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        breed:
+          type: string
+        name:
+          type: string
+          maxLength: 50
+        age:
+          type: integer
+        gender:
+          enum:
+          - F
+          - M
+          type: string
+        color:
+          type: string
+          maxLength: 60
+        favorite_food:
+          type: string
+          maxLength: 50
+        favorite_toy:
+          type: string
+          maxLength: 50
+      required:
+      - breed
+      - name
+      - color
+      - favorite_food
+      - favorite_toy
+    Breed:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 50
+        size:
+          enum:
+          - Tiny
+          - Small
+          - Medium
+          - Large
+          type: string
+        friendliness:
+          enum:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          type: integer
+        trainability:
+          enum:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          type: integer
+        exerciseneeds:
+          enum:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          type: integer
+      required:
+      - name

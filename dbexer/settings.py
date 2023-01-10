@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,17 +22,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=u*5cj6%ufymnd*&1&!tl&z13*b=c!)fah((-9s*a^+4t)-qnd'
+SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = str(config('DEBUG')) == "1"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost"]
 
 
 # Application definition
 
-INSTALLED_APPS = [
+DEFAULT_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,9 +40,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "api.apps.ApiConfig",
-    "rest_framework",
-    "corsheaders"
 ]
+
+REST_FRAMEWORK_APPS = [
+    "rest_framework",
+    "corsheaders",
+    "drf_yasg",
+]
+
+INSTALLED_APPS = DEFAULT_APPS + REST_FRAMEWORK_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -122,10 +130,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# REST FRAMEWORK SETTINGS
+
 CORS_ALLOW_ALL_ORIGINS = True
+LOGIN_URL = "rest_framework:login"
+LOGOUT_URL = "rest_framework:logout"
+
+# DEPLOYMENT SETTINGS
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
