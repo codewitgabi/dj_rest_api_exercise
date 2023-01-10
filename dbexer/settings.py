@@ -89,8 +89,12 @@ WSGI_APPLICATION = 'dbexer.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': "railway",
+        "USER": "postgres",
+        "PASSWORD": "HnTwKMCU9RCi1e0402P0",
+        "HOST": "containers-us-west-144.railway.app",
+        "PORT": "6849"
     }
 }
 
