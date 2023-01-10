@@ -3,7 +3,7 @@ from .models import Dog, Breed
 
 
 class DogSerializer(serializers.ModelSerializer):
-	breed = serializers.HyperlinkedRelatedField(queryset= Breed.objects.all(), view_name= "breed-detail", lookup_field= "id")
+	# breed = serializers.HyperlinkedRelatedField(queryset= Breed.objects.all(), view_name= "breed-detail", lookup_field= "id")
 	class Meta:
 		model = Dog
 		fields = "__all__"

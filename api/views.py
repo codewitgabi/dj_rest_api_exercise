@@ -20,8 +20,8 @@ def api_root(request, format= None):
 class DogList(generics.ListCreateAPIView):
 	queryset = Dog.objects.all()
 	serializer_class = DogSerializer
-	authentication_classes = [BasicAuthentication]
-	permission_classes = [IsAuthenticatedOrReadOnly]
+	# authentication_classes = [BasicAuthentication]
+	# permission_classes = [IsAuthenticatedOrReadOnly]
 	
 	
 class DogDetail(generics.RetrieveUpdateDestroyAPIView):
