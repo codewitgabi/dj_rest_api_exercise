@@ -27,7 +27,7 @@ SECRET_KEY = "dc8eba693592a9e93fff86e49996dbb2034defbfa3972fab9db4b5ef30aa8cf5"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = str(config("DEBUG")) == "1"
 
-ALLOWED_HOSTS = ["web-production-f585.up.railway.app"]
+ALLOWED_HOSTS = ["web-production-f595.up.railway.app", "localhost"]
 
 CSRF_TRUSTED_ORIGINS = ["https://web-production-f595.up.railway.app"]
 
