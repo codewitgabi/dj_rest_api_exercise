@@ -4,6 +4,4 @@ db.sqlite3
 db.sqlite3-journal
 .env
 /__pycache__/
-migrations/00*
-staticfiles/
 *.pyc

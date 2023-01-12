@@ -1,1 +1,1 @@
-web: python manage.py migrate && gunicorn "dbexer.wsgi"
+web: gunicorn "dbexer.wsgi"
