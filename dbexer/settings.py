@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "dc8eba693592a9e93fff86e49996dbb2034defbfa3972fab9db4b5ef30aa8cf5"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = str(config("DEBUG")) == "1"
+DEBUG = False
 
 ALLOWED_HOSTS = ["web-production-f595.up.railway.app", "localhost"]
 
@@ -91,11 +91,11 @@ WSGI_APPLICATION = 'dbexer.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config("DB_NAME"),
-        "USER": config("DB_USER"),
-        "PASSWORD": config("DB_PASSWORD"),
-        "HOST": config("DB_HOST"),
-        "PORT": config("DB_PORT")
+        'NAME': "railway",
+        "USER": "postgres",
+        "PASSWORD": "HnTwKMCU9RCi1e0402P0",
+        "HOST": "containers-us-west-144.railway.app",
+        "PORT": "6849"
     }
 }
 
