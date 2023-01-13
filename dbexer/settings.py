@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "dc8eba693592a9e93fff86e49996dbb2034defbfa3972fab9db4b5ef30aa8cf5"
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG")
@@ -91,11 +91,11 @@ WSGI_APPLICATION = 'dbexer.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "railway",
-        "USER": "postgres",
-        "PASSWORD": "nSpTrHUOchDc8kJEpvbE",
-        "HOST": "containers-us-west-144.railway.app",
-        "PORT": "6849"
+        'NAME': os.environ.get("DB_NAME"),
+        "USER": os.environ.get("DB_USER"),
+        "PASSWORD": os.environ.get("DB_PASSWORD"),
+        "HOST": os.environ.get("DB_HOST"),
+        "PORT": os.environ.get("DB_PORT")
     }
 }
 
