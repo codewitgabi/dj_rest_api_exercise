@@ -151,6 +151,12 @@ CORS_ALLOW_ALL_ORIGINS = True
 LOGIN_URL = "rest_framework:login"
 LOGOUT_URL = "rest_framework:logout"
 
+# SWAGGER CONFIGURATION SETTINGS
+
+SWAGGER_SETTINGS = {
+    "SHOW_TOP_BAR": False,
+}
+
 # DEPLOYMENT SETTINGS
 
 CSRF_COOKIE_SECURE = True
