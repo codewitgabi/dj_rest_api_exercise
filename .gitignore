@@ -4,9 +4,4 @@ db.sqlite3
 db.sqlite3-journal
 .env
 /__pycache__/
-<<<<<<< HEAD
-migrations/00*
 *.pyc
-=======
-*.pyc
->>>>>>> 23d7c13674add812705ecd5b2e1aea9125463187

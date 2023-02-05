@@ -29,12 +29,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ["dog-api.up.railway.app", "localhost"]
 
-<<<<<<< HEAD
-CSRF_TRUSTED_ORIGINS = ["https://web-production-f595.up.railway.app", "http://localhost"]
-=======
 CSRF_TRUSTED_ORIGINS = ["https://dog-api.up.railway.app"]
->>>>>>> 23d7c13674add812705ecd5b2e1aea9125463187
-
 
 # Application definition
 
@@ -94,17 +89,12 @@ WSGI_APPLICATION = 'dbexer.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 DATABASES = {
     'default': {
-<<<<<<< HEAD
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-=======
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.environ.get("DB_NAME"),
         "USER": os.environ.get("DB_USER"),
         "PASSWORD": os.environ.get("DB_PASSWORD"),
         "HOST": os.environ.get("DB_HOST"),
         "PORT": os.environ.get("DB_PORT")
->>>>>>> 23d7c13674add812705ecd5b2e1aea9125463187
     }
 }
 
