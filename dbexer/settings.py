@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-from decouple import config
+#from decouple import config
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -22,19 +22,24 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "dc8eba693592a9e93fff86e49996dbb2034defbfa3972fab9db4b5ef30aa8cf5"
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["web-production-f595.up.railway.app", "localhost"]
+ALLOWED_HOSTS = ["dog-api.up.railway.app", "localhost"]
 
+<<<<<<< HEAD
 CSRF_TRUSTED_ORIGINS = ["https://web-production-f595.up.railway.app", "http://localhost"]
+=======
+CSRF_TRUSTED_ORIGINS = ["https://dog-api.up.railway.app"]
+>>>>>>> 23d7c13674add812705ecd5b2e1aea9125463187
 
 
 # Application definition
 
 DEFAULT_APPS = [
+    "whitenoise.runserver_nostatic",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -89,8 +94,17 @@ WSGI_APPLICATION = 'dbexer.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 DATABASES = {
     'default': {
+<<<<<<< HEAD
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+=======
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get("DB_NAME"),
+        "USER": os.environ.get("DB_USER"),
+        "PASSWORD": os.environ.get("DB_PASSWORD"),
+        "HOST": os.environ.get("DB_HOST"),
+        "PORT": os.environ.get("DB_PORT")
+>>>>>>> 23d7c13674add812705ecd5b2e1aea9125463187
     }
 }
 
@@ -146,6 +160,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOW_ALL_ORIGINS = True
 LOGIN_URL = "rest_framework:login"
 LOGOUT_URL = "rest_framework:logout"
+
+# SWAGGER CONFIGURATION SETTINGS
+
+SWAGGER_SETTINGS = {
+    "SHOW_TOP_BAR": False,
+}
 
 # DEPLOYMENT SETTINGS
 
