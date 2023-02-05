@@ -1,12 +1,15 @@
 from django.shortcuts import render
 from .models import Dog, Breed
-from .serializers import DogSerializer, BreedSerializer
+from .serializers import DogSerializer, BreedSerializer, UserSerializer
 from rest_framework import generics
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 from rest_framework.authentication import BasicAuthentication
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 
 @api_view(["GET"])
@@ -17,11 +20,16 @@ def api_root(request, format= None):
 	})
 	
 
+class Register(generics.ListCreateAPIView):
+	queryset = User.objects.all()
+	serializer_class = UserSerializer
+
+
 class DogList(generics.ListCreateAPIView):
 	queryset = Dog.objects.all()
 	serializer_class = DogSerializer
-	# authentication_classes = [BasicAuthentication]
-	# permission_classes = [IsAuthenticatedOrReadOnly]
+	authentication_classes = [BasicAuthentication]
+	permission_classes = [IsAuthenticatedOrReadOnly]
 	
 	
 class DogDetail(generics.RetrieveUpdateDestroyAPIView):

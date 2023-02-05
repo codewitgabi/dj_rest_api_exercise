@@ -9,6 +9,5 @@ urlpatterns = [
 	path("dog-detail/<int:id>", views.DogDetail.as_view(), name= "dog-detail"),
 	path("breed-list", views.BreedList.as_view(), name= "breed-list"),
 	path("breed-detail/<int:id>", views.BreedDetail.as_view(), name= "breed-detail"),
+	path("register/", views.Register.as_view(), name="register"),
 ]
-
-# urlpatterns = format_suffix_patterns(urlpatterns)

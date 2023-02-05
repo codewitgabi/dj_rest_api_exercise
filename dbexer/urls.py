@@ -12,7 +12,8 @@ schema_view = get_schema_view(
 		default_version= "1.0.1",
 		description= "An API for different dogs and breed. Use this for testing your knowledge on web apis. It is totally free to use. Create as much data as you want but invalid data will be cleared weekly",
 	),
-	public= True
+	public= True,
+	
 )
 
 urlpatterns = [

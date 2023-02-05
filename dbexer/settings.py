@@ -29,7 +29,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ["web-production-f595.up.railway.app", "localhost"]
 
-CSRF_TRUSTED_ORIGINS = ["https://web-production-f595.up.railway.app"]
+CSRF_TRUSTED_ORIGINS = ["https://web-production-f595.up.railway.app", "http://localhost"]
 
 
 # Application definition
@@ -87,15 +87,10 @@ WSGI_APPLICATION = 'dbexer.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "railway",
-        "USER": "postgres",
-        "PASSWORD": "HnTwKMCU9RCi1e0402P0",
-        "HOST": "containers-us-west-144.railway.app",
-        "PORT": "6849"
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -131,6 +126,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+AUTH_USER_MODEL = "api.User"
 
 
 # Static files (CSS, JavaScript, Images)
