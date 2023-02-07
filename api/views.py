@@ -18,11 +18,6 @@ def api_root(request, format= None):
 		"dog-list": reverse("dog-list", request= request, format= format),
 		"breed-list": reverse("breed-list", request= request, format= format),
 	})
-	
-
-class Register(generics.ListCreateAPIView):
-	queryset = User.objects.all()
-	serializer_class = UserSerializer
 
 
 class DogList(generics.ListCreateAPIView):
