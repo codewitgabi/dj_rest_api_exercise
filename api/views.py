@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Dog, Breed
-from .serializers import DogSerializer, BreedSerializer, UserSerializer
+from .serializers import DogSerializer, BreedSerializer
 from rest_framework import generics
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
